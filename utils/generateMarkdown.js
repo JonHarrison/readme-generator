@@ -26,7 +26,8 @@ const generateToC = (data) => {
 }
 
 // function to generate markdown for README
-function generateMarkdown(data) {
+const generateMarkdown = (data) => {
+// destructure data object
 const { title, license, description, installation, usage, contributing, tests, username, email } = data;
 
 return `# ${title}
