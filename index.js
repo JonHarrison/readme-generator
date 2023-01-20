@@ -4,6 +4,8 @@ import inquirer from 'inquirer';
 import { generateMarkdown, licenses } from './utils/generateMarkdown.js';
 import util from 'util';
 
+const writeFileAsync = util.promisify(fs.writeFile);
+
 // array of questions for user
 const questions = [
     {
@@ -57,6 +59,9 @@ const questions = [
 
 // function to write README file
 function writeToFile(fileName, data) {
+    writeFileAsync(fileName, generateMarkdown(data), (err) => {
+        err ? console.error(err) : console.log(data);
+    })
 }
 
 // function to initialize program
