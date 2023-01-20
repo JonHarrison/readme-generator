@@ -65,9 +65,24 @@ function writeToFile(fileName, data) {
 }
 
 // function to initialize program
-function init() {
+(function init() {
+    let filename = 'README.md';
+    inquirer
+        .prompt(questions)
+        .then((response) => {
+            // console.log(JSON.stringify(response, null, '  '));
+            filename = `${response.title.toLowerCase().split(' ').join('')} - README.md`;
+            writeToFile(filename, response);
+        })
+        .then(() => console.log(`Successfully written to ${filename}`))
+        .catch((error) => {
+            if (error.isTtyError) {
+                // Prompt couldn't be rendered in the current environment
+            } else {
+                // Something else went wrong
+                console.log(error);
+            }
+        });
 
 }
-
-// function call to initialize program
-init();
+)();
