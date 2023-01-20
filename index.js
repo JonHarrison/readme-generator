@@ -71,7 +71,7 @@ function writeToFile(fileName, data) {
         .prompt(questions)
         .then((response) => {
             // console.log(JSON.stringify(response, null, '  '));
-            filename = `${response.title.toLowerCase().split(' ').join('')} - README.md`;
+            filename = `README for ${response.title.toLowerCase().split(' ').join('')}.md`;
             writeToFile(filename, response);
         })
         .then(() => console.log(`Successfully written to ${filename}`))
