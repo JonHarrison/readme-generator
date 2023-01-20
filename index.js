@@ -1,7 +1,8 @@
 import fs from 'fs';
 import path from 'path';
 import inquirer from 'inquirer';
-import { generateMarkdown } from './utils/generateMarkdown.js';
+import { generateMarkdown, licenses } from './utils/generateMarkdown.js';
+import util from 'util';
 
 // array of questions for user
 const questions = [
