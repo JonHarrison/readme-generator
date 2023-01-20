@@ -34,8 +34,7 @@ function generateMarkdown(data) {
 
   ## Questions
   * GitHub profile : [${data.username}](https://github.com/${data.username})
-  * Email : ${data.email}
-
+  * Email : [Contact me](mailto:${data.email}?subject=re:%20${encodeURIComponent(data.title)})
   `;
 }
 
