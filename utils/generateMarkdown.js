@@ -27,40 +27,33 @@ const generateToC = (data) => {
 
 // function to generate markdown for README
 function generateMarkdown(data) {
-  return `
-  # ${data.title}
-  ${licenses.makeBadge(data.license)}
+const { title, license, description, installation, usage, contributing, tests, username, email } = data;
+
+return `# ${title}
+${licenses.makeBadge(license)}
   
-  ## Description
-  ${data.description}
+${description ? `## Description\n${description}` : '' }
 
-  ## Table of Contents
-  1. [Installation](#installation)
-  2. [Usage](#usage)
-  3. [License](#license)
-  4. [Contributing](#contributing)
-  5. [Tests](#tests)
-  6. [Questions](#questions)
+${generateToC(data)}
 
-  ## Installation
-  ${data.installation}
+${installation ? `## Installation\n${installation}` : '' }
 
-  ## Usage
-  ${data.usage}
+${usage ? `## Usage\n${usage}` : '' }
 
-  ## License
-  This project is licensed under ${data.license}
+${license ? `## License\nThis project is licensed under ${license}` : '' }
 
-  ## Contributing
-  ${data.contributing}
+${contributing ? `## Contributing\n${contributing}` : '' }
 
-  ## Tests
-  ${data.tests}
+${tests ? `## Tests\n${tests}` : '' }
 
-  ## Questions
-  * GitHub profile : [${data.username}](https://github.com/${data.username})
-  * Email : [Contact me](mailto:${data.email}?subject=re:%20${encodeURIComponent(data.title)})
-  `;
+${ (username || email)
+  ?
+  '## Questions\n' +
+  `${username ? `* GitHub profile : [${username}](https://github.com/${username})` : '' }` +
+  '\n' +
+  `${email ? `* Email : [Contact me](mailto:${email}?subject=re:%20${encodeURIComponent(title)})` : '' }`
+  : '' }
+`;
 }
 
 export { generateMarkdown, licenses };
