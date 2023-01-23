@@ -10,7 +10,8 @@ const questions = [
     {
         type: 'input',
         name: 'title',
-        message: "What is the project title?"
+        message: "What is the project title?",
+        default: 'Untitled'
     },
     {
         type: 'input',
@@ -60,19 +61,20 @@ const questions = [
 function writeToFile(fileName, data) {
     (async () => {
         await fs.writeFile(fileName, generateMarkdown(data), (err) => {
-        err ? console.error(err) : console.log(data);
-    })
+            err ? console.error(err) : console.log(data);
+        })
     })();
 }
 
 // function to initialize program
 (function init() {
-    let filename = 'README.md';
+    let filename = 'example README.md';
     inquirer
         .prompt(questions)
         .then((response) => {
-            // console.log(JSON.stringify(response, null, '  '));
-            filename = `README for ${response.title.toLowerCase().split(' ').join('')}.md`;
+            if (response.title) {
+                filename = `README for ${response.title.toLowerCase()}.md`;
+            }
             writeToFile(filename, response);
         })
         .then(() => console.log(`Successfully written to ${filename}`))
