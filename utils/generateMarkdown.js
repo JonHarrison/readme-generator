@@ -41,7 +41,7 @@ ${installation ? `## Installation\n${installation}` : '' }
 
 ${usage ? `## Usage\n${usage}` : '' }
 
-${license ? `## License\nThis project is licensed under ${license}` : '' }
+${license ? (licenses.isLicensed(license) ? `## License\nThis project isn't licensed under any specific conditions` : `## License\nThis project is licensed under ${license}`) : '' }
 
 ${contributing ? `## Contributing\n${contributing}` : '' }
 
