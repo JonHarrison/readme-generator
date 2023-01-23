@@ -1,12 +1,9 @@
-import fs from 'fs';
+import { promises as fs } from 'fs';
 import path from 'path';
 import inquirer from 'inquirer';
-import util from 'util';
 
 import { generateMarkdown } from './utils/generateMarkdown.js';
 import { licenses } from './utils/licenses.js';
-
-const writeFileAsync = util.promisify(fs.writeFile);
 
 // array of questions for user
 const questions = [
@@ -61,9 +58,11 @@ const questions = [
 
 // function to write README file
 function writeToFile(fileName, data) {
-    writeFileAsync(fileName, generateMarkdown(data), (err) => {
+    (async () => {
+        await fs.writeFile(fileName, generateMarkdown(data), (err) => {
         err ? console.error(err) : console.log(data);
     })
+    })();
 }
 
 // function to initialize program
