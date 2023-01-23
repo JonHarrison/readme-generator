@@ -20,9 +20,11 @@ const licenses = {
             { name: noLicense }
         ],
     getChoices: function () { return this.data; },
-    isLicensed(name) { return (name !== noLicense) },
+    isLicensed: function(name) {
+        // licensed if your name is on the list and isn't noLicense
+        return ( (this.data.find(x => x.name === name) !== undefined) && (name != noLicense) ? true : false )
+    },
     makeBadge: function (name) {
-        console.log({ name });
         switch (name) {
             case noLicense:
                 return ''; // no badge
