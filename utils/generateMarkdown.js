@@ -57,4 +57,4 @@ ${ (username || email)
 `;
 }
 
-export { generateMarkdown, licenses };
+export { generateMarkdown, generateToC };

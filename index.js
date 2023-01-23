@@ -1,8 +1,10 @@
 import fs from 'fs';
 import path from 'path';
 import inquirer from 'inquirer';
-import { generateMarkdown, licenses } from './utils/generateMarkdown.js';
 import util from 'util';
+
+import { generateMarkdown } from './utils/generateMarkdown.js';
+import { licenses } from './utils/licenses.js';
 
 const writeFileAsync = util.promisify(fs.writeFile);
 
