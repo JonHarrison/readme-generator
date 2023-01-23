@@ -23,6 +23,8 @@ const tests = [
     ]
 ]
 
-test.each(tests)('Table of contents', (data, result) => {
-    expect(generateToC(data)).toBe(result);
+describe('Testing table of contents', () => {
+    test.each(tests)('generateToC', (data, result) => {
+        expect(generateToC(data)).toBe(result);
+    })
 })
