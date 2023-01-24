@@ -51,7 +51,7 @@ npm test
 
 ## Walk-through
 
-This [walk-through video]() was created using Screencastify, it shows a walk-through of the application and an example of the output produced
+This [walk-through video](https://drive.google.com/file/d/1ZjbTRGoEFD6EcqB7RTQDDqe0VVJEa0wW/view) ([alt link](https://bootcampspot.instructuremedia.com/embed/86d9b2e7-4ce3-420b-9726-c257f1984e24)) was created using Screencastify, it shows a walk-through of the application and an example of the output produced
 
 ## Technologies Used
 
