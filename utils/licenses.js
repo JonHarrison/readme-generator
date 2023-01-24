@@ -42,6 +42,18 @@ const licenses = {
                 }
                 else { return; } // should never get here because name originates come from licenses
         }
+    },
+    getLicenseURL: function(name) {
+        switch (name) {
+            case noLicense:
+                return;
+                break;
+            default:
+                const license = this.data.find(x => x.name === name);
+                if (license) {
+                    return `[${license.name}](${license.badge.url})`;
+                }
+        }
     }
 };
 
