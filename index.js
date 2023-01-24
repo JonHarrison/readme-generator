@@ -73,7 +73,8 @@ function writeToFile(fileName, data) {
         .prompt(questions)
         .then((response) => {
             if (response.title) {
-                filename = `README for ${response.title.toLowerCase()}.md`;
+                // generate filename from project title after converting to lower case and removing any extraneous spaces
+                filename = `README for ${response.title.toLowerCase().split(' ').join('')}.md`;
             }
             writeToFile(filename, response);
         })
